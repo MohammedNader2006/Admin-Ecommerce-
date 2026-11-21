@@ -253,7 +253,7 @@ The public home route currently renders the Ustora storefront view. The current 
 
 ![Admin Control](docs/screenshots/admin-controle.png)
 
-![Product Edit](docs/screenshots/edit products.png)
+![Product Edit](docs/screenshots/edit-products.png)
 
 ## Author
 
