@@ -94,7 +94,6 @@ Make sure the following tools are installed:
 
 -   PHP **8.3 or newer**
 -   Composer
--   Node.js and npm
 -   MySQL or MariaDB
 -   A web server or PHP's built-in development server
 
@@ -103,8 +102,6 @@ You can check your installed versions with:
 ``` bash
 php -v
 composer -V
-node -v
-npm -v
 ```
 
 ## Installation & Setup
@@ -144,14 +141,14 @@ php artisan key:generate
 
 ### 4. Configure the database
 
-Create a database, for example `admin_ecommerce`, then update the
+Create a database, for example `ecommerce`, then update the
 database settings in your `.env` file:
 
 ``` env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=admin_ecommerce
+DB_DATABASE=ecommerce
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -165,14 +162,7 @@ Use the credentials configured on your own machine. Do not commit your
 php artisan migrate
 ```
 
-### 6. Install and build frontend dependencies
-
-``` bash
-npm install
-npm run build
-```
-
-### 7. Start the development server
+### 6. Start the development server
 
 ``` bash
 php artisan serve
@@ -203,9 +193,6 @@ The admin login page is available at:
 
 ## Screenshots
 
-Screenshots are not included yet. To document the interface, add your
-own sanitized screenshots in a folder such as `docs/screenshots/`, then
-embed them here.
 
 For example:
 
