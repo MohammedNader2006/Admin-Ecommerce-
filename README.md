@@ -246,7 +246,7 @@ The public home route currently renders the Ustora storefront view. The current 
 ## Screenshots
 
 
-``` md
+
 ![Admin Login](docs/screenshots/admin-login.png)
 
 ![Admin Dashboard](docs/screenshots/admin-dashboard.png)
@@ -254,7 +254,7 @@ The public home route currently renders the Ustora storefront view. The current 
 ![Admin Control](docs/screenshots/admin-controle.png)
 
 ![Product Edit](docs/screenshots/editproducts.png)
-```
+
 ## Author
 
 **Mohammed Nader**
