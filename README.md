@@ -1,150 +1,185 @@
-::: {align="center"}
-# Admin Ecommerce
+<div align="center">
 
-**Laravel-based E-commerce Administration Panel**
+# Ecommerce Management System
 
-A backend-focused e-commerce administration project for managing
-products, users, locations, catalog data, and store settings through a
-protected admin dashboard.
+**A Laravel application for managing an online store through a dedicated administration panel.**
 
-[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/)
-[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
-[![MySQL](https://img.shields.io/badge/Database-MySQL%2FMariaDB-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
-:::
+![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?logo=laravel&logoColor=white)
+![Database](https://img.shields.io/badge/MySQL%20%2F%20MariaDB-4479A1?logo=mysql&logoColor=white)
 
-------------------------------------------------------------------------
+</div>
 
-## Overview
+---
 
-Admin Ecommerce is an e-commerce administration application built with
-**PHP and Laravel 13**. It provides a protected admin area for managing
-the main data and catalog resources of an online store.
+## About the Project
 
-The project focuses on backend functionality such as authentication,
-authorization through an admin guard and middleware, CRUD operations,
-request validation, database interactions, file uploads, and server-side
-data tables.
+Ecommerce is a Laravel-based application that provides an administration panel for managing the main data and operations of an online store. The project includes dedicated administrator authentication, catalog management, product editing and media handling, user and location management, store settings, and Arabic/English localization.
 
-> This repository contains the administration side and related
-> application code. Storefront, checkout, payment, and order-processing
-> capabilities are not documented here unless they are implemented and
-> verified in the source code.
+The application also contains a storefront interface built with the Ustora theme. The current public home page renders the theme view, while the main implemented management workflows are available through the admin panel.
 
 ## Features
 
-### Admin Authentication & Access Control
+### Administrator Authentication
 
--   Dedicated admin login and logout using an admin authentication
-    guard.
--   Protected admin routes using admin middleware.
--   Login request throttling.
--   Forgot-password and password-reset flow for administrators.
--   Password hashing before storing admin credentials.
-
-### Dashboard Data Management
-
-The admin area defines management routes for: - Administrators and
-users. - Products and departments. - Countries, cities, and states. -
-Trademarks and manufacturers. - Malls, shipping methods, colors, sizes,
-and weights. - Store settings.
+- Dedicated `admin` guard and Eloquent provider.
+- Administrator login and logout.
+- Protected admin routes through custom middleware.
+- Login rate limiting.
+- Forgot-password and password-reset workflow.
 
 ### Product Management
 
--   Product listing and editing.
--   Product data validation, including required fields, numeric values,
-    dates, and product status.
--   Product image upload, update, and deletion.
--   Additional product file uploads and deletion.
--   Product duplication, including copying its main image and associated
-    data.
--   Related-product and mall associations.
--   Dynamic size and weight loading based on the selected department.
--   Bulk product deletion.
+- Create product records and edit product details.
+- Manage product information such as title, description, department, trademark, manufacturer, price, stock, dates, offer details, and status.
+- Upload, replace, and remove the main product image.
+- Upload and delete additional product files.
+- Duplicate products together with their associated media and related records.
+- Associate products with malls and related products.
+- Search for products when managing related products.
+- Load available sizes and weights based on the selected department.
+- Delete individual products or perform bulk deletion.
+
+### Catalog Management
+
+The administration panel provides management pages for:
+
+- Departments and parent/child department relationships.
+- Trademarks.
+- Manufacturers.
+- Colors.
+- Sizes.
+- Weights.
+- Malls.
+- Shipping methods.
+
+### Users and Locations
+
+- User management.
+- Country management.
+- City management.
+- State/area management.
+
+### Store Configuration
+
+- Arabic and English store names.
+- Store logo and icon.
+- Store description and keywords.
+- Main language selection.
+- Store availability status.
+- Maintenance message and maintenance page handling.
 
 ### Data Tables
 
--   Yajra Laravel DataTables integration for admin listings.
--   Eloquent query-based table data.
--   Search and table controls.
--   CSV, Excel, and print export buttons where configured.
+- Yajra Laravel DataTables integration.
+- Eloquent-based server-side data tables.
+- Search, pagination, and column filtering.
+- Row selection and bulk actions.
+- CSV, Excel, and print export buttons where configured.
 
 ### Localization
 
--   Arabic and English language selection through the admin routes.
--   Translation-based interface labels.
--   Language-aware content fields for supported records.
+- Arabic and English translation files.
+- Language switching from the admin panel.
+- RTL layout for Arabic and LTR layout for English.
+- Localized admin interface and DataTables messages.
 
-## Tech Stack
+## Technology Stack
 
-  Technology                    Usage
-  ----------------------------- -----------------------------------
-  PHP 8.3+                      Backend programming language
-  Laravel 13                    Web application framework
-  MySQL / MariaDB               Relational database
-  Blade                         Server-rendered views
-  Yajra Laravel DataTables 13   Admin data tables
-  Maatwebsite Excel 4           Excel-related functionality
-  JavaScript / jQuery           Client-side interactions and AJAX
-  Vite 8                        Frontend asset build tooling
-  Tailwind CSS 4                Frontend styling dependency
+| Technology | Usage |
+|---|---|
+| PHP 8.3+ | Backend language |
+| Laravel 13 | Application framework |
+| MySQL / MariaDB | Relational database |
+| Blade | Server-rendered views |
+| Eloquent ORM | Database models and relationships |
+| Yajra Laravel DataTables 13 | Admin data tables |
+| Maatwebsite Excel 4 | Excel export integration |
+| JavaScript and jQuery | Frontend interactions |
+| AdminLTE 2 | Admin dashboard template |
+| Bootstrap 3 | Admin interface styling |
+| Ustora | Storefront theme |
 
-## Project Requirements
+## Project Structure
 
-Make sure the following tools are installed:
-
--   PHP **8.3 or newer**
--   Composer
--   MySQL or MariaDB
--   A web server or PHP's built-in development server
-
-You can check your installed versions with:
-
-``` bash
-php -v
-composer -V
+```text
+Ecommerce/
+├── app/
+│   ├── DataTables/              # Yajra DataTables classes
+│   ├── Http/
+│   │   ├── Controllers/Admin/   # Admin panel controllers
+│   │   ├── Middleware/          # Admin, language, maintenance middleware
+│   │   └── helper.php           # Shared helper functions
+│   └── Models/                  # Eloquent models
+├── bootstrap/
+│   └── app.php                  # Application and middleware configuration
+├── config/                      # Laravel configuration
+├── database/
+│   ├── migrations/              # Database schema
+│   └── seeders/                 # Database seeders
+├── public/
+│   └── design/                  # AdminLTE and Ustora assets
+├── resources/
+│   └── views/
+│       ├── admin/                # Admin Blade views
+│       └── style/                # Storefront Blade views
+├── routes/
+│   ├── admin.php                # Admin panel routes
+│   ├── console.php              # Console routes
+│   └── web.php                  # Public web routes
+├── composer.json
+└── README.md
 ```
 
-## Installation & Setup
+## Requirements
+
+- PHP **8.3 or later**.
+- Composer.
+- MySQL or MariaDB.
+- PHP extensions required by Laravel 13 and the installed Composer packages.
+
+## Installation
 
 ### 1. Clone the repository
 
-``` bash
+```bash
 git clone https://github.com/MohammedNader2006/Admin-Ecommerce-.git
 cd Admin-Ecommerce-
 ```
 
 ### 2. Install PHP dependencies
 
-``` bash
+```bash
 composer install
 ```
 
-### 3. Configure the environment
+### 3. Configure the application
 
-Create your local environment file:
+Create the local Laravel environment configuration from the example file:
 
-``` bash
-cp .env.example .env
+**Windows PowerShell**
+
+```powershell
+Copy-Item .env.example .env
 ```
 
-On Windows PowerShell, use:
+**macOS / Linux**
 
-``` powershell
-Copy-Item .env.example .env
+```bash
+cp .env.example .env
 ```
 
 Generate the application key:
 
-``` bash
+```bash
 php artisan key:generate
 ```
 
 ### 4. Configure the database
 
-Create a database, for example `ecommerce`, then update the
-database settings in your `.env` file:
+Create a MySQL or MariaDB database, then set the connection values in your local environment configuration. For example:
 
-``` env
+```.env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -153,83 +188,73 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Use the credentials configured on your own machine. Do not commit your
-`.env` file.
+Use the database name, username, password, and port configured on your machine.
 
 ### 5. Run database migrations
 
-``` bash
+```bash
 php artisan migrate
 ```
 
-### 6. Start the development server
+### 6. Create an administrator account
 
-``` bash
+The included `DatabaseSeeder` creates a regular test user; it does not create an admin account. Create the first administrator using Tinker:
+
+```bash
+php artisan tinker
+```
+
+Then execute:
+
+```php
+\App\Models\Admin::create([
+    'name' => 'Administrator',
+    'email' => 'admin@example.com',
+    'password' => \Illuminate\Support\Facades\Hash::make('your-password'),
+]);
+```
+
+Replace the sample email and password with your preferred credentials.
+
+### 7. Run the application
+
+```bash
 php artisan serve
 ```
 
-Open the local URL shown in the terminal, usually:
+Open the local address shown by Artisan, usually `http://127.0.0.1:8000`.
 
-``` text
-http://127.0.0.1:8000
-```
+## Main Routes
 
-The admin routes are grouped under the `/admin` prefix.
+| Area | URL |
+|---|---|
+| Storefront home | `/` |
+| Admin login | `/admin/login` |
 
-## Admin Access
+## Mail Configuration
 
-There are **no default admin credentials documented in this
-repository**.
+The password-reset workflow uses Laravel's mail system. Configure a working mail transport in the application environment settings to send password-reset emails.
 
-Use an administrator account created through your own authorized local
-setup. Do not publish real usernames, passwords, reset tokens, API keys,
-or database credentials in this repository.
+## Project Scope
 
-The admin login page is available at:
+This README describes functionality found in the current routes, controllers, models, migrations, and views.
 
-``` text
-/admin/login
-```
+The public home route currently renders the Ustora storefront view. The current source does not implement complete customer-facing workflows for dynamic product browsing, shopping cart, checkout, payment processing, or order management; these are not presented as completed features.
+
+---
 
 ## Screenshots
 
 
-For example:
-
 ``` md
-![Admin Dashboard](docs/screenshots/admin-dashboard.png)
-![Products Management](docs/screenshots/products-management.png)
-![Product Edit](docs/screenshots/product-edit.png)
+![Admin Login](docs/screenshots/admin-login.png)
+![Admin Dashboard](docs/screenshots/admin-dahboard.png)
+![Admin Controle](docs/screenshots/admin-controle.png)
+![Product Edit](docs/screenshots/editproducts.png)
 ```
-
-Avoid including personal data, real customer information, or credentials
-in screenshots.
-
-## Security Notes
-
--   Keep `.env` out of version control.
--   Use strong passwords for administrator accounts.
--   Configure production environment values securely.
--   Do not expose password-reset links, tokens, or database credentials.
--   Review authorization and validation rules before deploying the
-    application publicly.
-
-## Current Scope
-
-This repository is an ongoing learning project. The README describes
-functionality visible in the current source code; it does not claim that
-unimplemented storefront, cart, checkout, payment, or order-management
-features are available.
-
 ## Author
 
 **Mohammed Nader**
 
--   GitHub: [@MohammedNader2006](https://github.com/MohammedNader2006)
--   Project Repository:
-    [Admin-Ecommerce-](https://github.com/MohammedNader2006/Admin-Ecommerce-)
-
-------------------------------------------------------------------------
-
-If you find an issue or have a suggestion, feel free to open an issue in
-the repository.
+- GitHub: [@MohammedNader2006](https://github.com/MohammedNader2006)
+- Project Repository: [Admin-Ecommerce-](https://github.com/MohammedNader2006/Admin-Ecommerce-)
