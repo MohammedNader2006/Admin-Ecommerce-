@@ -1,58 +1,248 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+::: {align="center"}
+# Admin Ecommerce
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Laravel-based E-commerce Administration Panel**
 
-## About Laravel
+A backend-focused e-commerce administration project for managing
+products, users, locations, catalog data, and store settings through a
+protected admin dashboard.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
+[![MySQL](https://img.shields.io/badge/Database-MySQL%2FMariaDB-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+:::
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+------------------------------------------------------------------------
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Overview
 
-## Learning Laravel
+Admin Ecommerce is an e-commerce administration application built with
+**PHP and Laravel 13**. It provides a protected admin area for managing
+the main data and catalog resources of an online store.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The project focuses on backend functionality such as authentication,
+authorization through an admin guard and middleware, CRUD operations,
+request validation, database interactions, file uploads, and server-side
+data tables.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> This repository contains the administration side and related
+> application code. Storefront, checkout, payment, and order-processing
+> capabilities are not documented here unless they are implemented and
+> verified in the source code.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Features
 
-## Agentic Development
+### Admin Authentication & Access Control
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+-   Dedicated admin login and logout using an admin authentication
+    guard.
+-   Protected admin routes using admin middleware.
+-   Login request throttling.
+-   Forgot-password and password-reset flow for administrators.
+-   Password hashing before storing admin credentials.
 
-```bash
-composer require laravel/boost --dev
+### Dashboard Data Management
 
-php artisan boost:install
+The admin area defines management routes for: - Administrators and
+users. - Products and departments. - Countries, cities, and states. -
+Trademarks and manufacturers. - Malls, shipping methods, colors, sizes,
+and weights. - Store settings.
+
+### Product Management
+
+-   Product listing and editing.
+-   Product data validation, including required fields, numeric values,
+    dates, and product status.
+-   Product image upload, update, and deletion.
+-   Additional product file uploads and deletion.
+-   Product duplication, including copying its main image and associated
+    data.
+-   Related-product and mall associations.
+-   Dynamic size and weight loading based on the selected department.
+-   Bulk product deletion.
+
+### Data Tables
+
+-   Yajra Laravel DataTables integration for admin listings.
+-   Eloquent query-based table data.
+-   Search and table controls.
+-   CSV, Excel, and print export buttons where configured.
+
+### Localization
+
+-   Arabic and English language selection through the admin routes.
+-   Translation-based interface labels.
+-   Language-aware content fields for supported records.
+
+## Tech Stack
+
+  Technology                    Usage
+  ----------------------------- -----------------------------------
+  PHP 8.3+                      Backend programming language
+  Laravel 13                    Web application framework
+  MySQL / MariaDB               Relational database
+  Blade                         Server-rendered views
+  Yajra Laravel DataTables 13   Admin data tables
+  Maatwebsite Excel 4           Excel-related functionality
+  JavaScript / jQuery           Client-side interactions and AJAX
+  Vite 8                        Frontend asset build tooling
+  Tailwind CSS 4                Frontend styling dependency
+
+## Project Requirements
+
+Make sure the following tools are installed:
+
+-   PHP **8.3 or newer**
+-   Composer
+-   Node.js and npm
+-   MySQL or MariaDB
+-   A web server or PHP's built-in development server
+
+You can check your installed versions with:
+
+``` bash
+php -v
+composer -V
+node -v
+npm -v
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Installation & Setup
 
-## Contributing
+### 1. Clone the repository
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+``` bash
+git clone https://github.com/MohammedNader2006/Admin-Ecommerce-.git
+cd Admin-Ecommerce-
+```
 
-## Code of Conduct
+### 2. Install PHP dependencies
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+``` bash
+composer install
+```
 
-## Security Vulnerabilities
+### 3. Configure the environment
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Create your local environment file:
 
-## License
+``` bash
+cp .env.example .env
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+On Windows PowerShell, use:
+
+``` powershell
+Copy-Item .env.example .env
+```
+
+Generate the application key:
+
+``` bash
+php artisan key:generate
+```
+
+### 4. Configure the database
+
+Create a database, for example `admin_ecommerce`, then update the
+database settings in your `.env` file:
+
+``` env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=admin_ecommerce
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Use the credentials configured on your own machine. Do not commit your
+`.env` file.
+
+### 5. Run database migrations
+
+``` bash
+php artisan migrate
+```
+
+### 6. Install and build frontend dependencies
+
+``` bash
+npm install
+npm run build
+```
+
+### 7. Start the development server
+
+``` bash
+php artisan serve
+```
+
+Open the local URL shown in the terminal, usually:
+
+``` text
+http://127.0.0.1:8000
+```
+
+The admin routes are grouped under the `/admin` prefix.
+
+## Admin Access
+
+There are **no default admin credentials documented in this
+repository**.
+
+Use an administrator account created through your own authorized local
+setup. Do not publish real usernames, passwords, reset tokens, API keys,
+or database credentials in this repository.
+
+The admin login page is available at:
+
+``` text
+/admin/login
+```
+
+## Screenshots
+
+Screenshots are not included yet. To document the interface, add your
+own sanitized screenshots in a folder such as `docs/screenshots/`, then
+embed them here.
+
+For example:
+
+``` md
+![Admin Dashboard](docs/screenshots/admin-dashboard.png)
+![Products Management](docs/screenshots/products-management.png)
+![Product Edit](docs/screenshots/product-edit.png)
+```
+
+Avoid including personal data, real customer information, or credentials
+in screenshots.
+
+## Security Notes
+
+-   Keep `.env` out of version control.
+-   Use strong passwords for administrator accounts.
+-   Configure production environment values securely.
+-   Do not expose password-reset links, tokens, or database credentials.
+-   Review authorization and validation rules before deploying the
+    application publicly.
+
+## Current Scope
+
+This repository is an ongoing learning project. The README describes
+functionality visible in the current source code; it does not claim that
+unimplemented storefront, cart, checkout, payment, or order-management
+features are available.
+
+## Author
+
+**Mohammed Nader**
+
+-   GitHub: [@MohammedNader2006](https://github.com/MohammedNader2006)
+-   Project Repository:
+    [Admin-Ecommerce-](https://github.com/MohammedNader2006/Admin-Ecommerce-)
+
+------------------------------------------------------------------------
+
+If you find an issue or have a suggestion, feel free to open an issue in
+the repository.
